@@ -34,10 +34,10 @@ const SneakerDetails = (props) => { // sneakerdetails component will be used to 
             <p>{sneaker.brand.toUpperCase()}</p> 
             <h1>{sneaker.name}</h1> 
             <p>
-              {sneaker.author.username} posted on
+              {sneaker.username} posted on
               {new Date(sneaker.createdAt).toLocaleDateString()}
             </p>
-              {sneaker.author._id === user._id && ( // checks if the user's ID matches the SNKR author's ID
+              {sneaker._id === user._id && ( // checks if the user's ID matches the SNKR author's ID
                 <>
                  <Link to={`/sneakers/${sneakerId}/edit`}>Edit</Link>
                   <button onClick={() => {props.handleDeleteSneaker(sneakerId)}}>Delete</button>
