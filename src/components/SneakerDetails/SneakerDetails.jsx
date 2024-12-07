@@ -34,7 +34,7 @@ const SneakerDetails = (props) => { // sneakerdetails component will be used to 
             <p>{sneaker.brand.toUpperCase()}</p> 
             <h1>{sneaker.name}</h1> 
             <p>
-              {sneaker.username} posted on
+              {sneaker.author.username} posted on
               {new Date(sneaker.createdAt).toLocaleDateString()}
             </p>
               {sneaker._id === user._id && ( // checks if the user's ID matches the SNKR author's ID
