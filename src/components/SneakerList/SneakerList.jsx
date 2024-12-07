@@ -11,7 +11,7 @@ const SneakerList = (props) => {
                 <header>
                   <h2>{sneaker.name}</h2>
                   <p>
-                    {sneaker.username} posted on {new Date(sneaker.createdAt).toLocaleDateString()} 
+                    {sneaker.username} posted on:  {new Date(sneaker.createdAt).toLocaleDateString()} 
                   </p>
                 </header>
                 <p>{sneaker.description}</p>
