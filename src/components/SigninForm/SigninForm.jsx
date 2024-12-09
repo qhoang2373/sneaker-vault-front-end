@@ -14,20 +14,20 @@ const SigninForm = (props) => {
     setMessage(msg);
   };
 
-  const handleChange = (e) => {
+  const handleChange = (event) => {
     updateMessage('');
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setFormData({ ...formData, [event.target.name]: event.target.value });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
     try {
       const user = await authService.signin(formData); 
 
       props.setUser(user);
       navigate('/');
-    } catch (err) {
-      updateMessage(err.message);
+    } catch (error) {
+      updateMessage(error.message);
     }
   };
 

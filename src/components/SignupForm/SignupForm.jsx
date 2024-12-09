@@ -16,12 +16,12 @@ const SignupForm = (props) => {
   };
 
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const handleChange = (event) => {
+    setFormData({ ...formData, [event.target.name]: event.target.value });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
     try {
         const newUserResponse = await authService.signup(formData)
         props.setUser(newUserResponse.user)

@@ -9,7 +9,6 @@ const signup = async (formData) => {
       })
       
       const json = await res.json()
-      // console.log(json)
 
       if(json.err) {
           throw new Error(json.err)
@@ -19,14 +18,12 @@ const signup = async (formData) => {
       }
       return json
   }catch(err){
-      // console.log(err)
       throw err
   }
 }
   
   const signin = async (user) => {
     try {
-
         const res = await fetch(`${BACKEND_URL}/users/signin`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -34,7 +31,7 @@ const signup = async (formData) => {
         })
 
         const json = await res.json()
-        // console.log(json)
+        console.log(json)
   
         if(json.err) {
           throw new Error(json.err)
@@ -43,11 +40,10 @@ const signup = async (formData) => {
       if (json.token) {
         localStorage.setItem('token', json.token)
         const user = JSON.parse(atob(json.token.split('.')[1]));
-        // console.log(user)
         return user
     }
 }catch(err) {
-    // console.log(err)
+    console.log(err)
     throw err
 }
 }

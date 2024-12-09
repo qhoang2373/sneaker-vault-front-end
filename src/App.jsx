@@ -1,51 +1,50 @@
 import { useState, useEffect, createContext } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import NavBar from './components/NavBar/NavBar';
-import Dashboard from './components/Dashboard/Dashboard'
-import Landing from './components/Landing/Landing'
+import Dashboard from './components/Dashboard/Dashboard';
+import Landing from './components/Landing/Landing';
 import SignupForm from './components/SignupForm/SignupForm';
 import SigninForm from './components/SigninForm/SigninForm';
-import * as authService from './services/authService'
-import * as sneakerService from './services/sneakerService'
+import * as authService from './services/authService';
+import * as sneakerService from './services/sneakerService';
 
-
-import SneakerList from './components/SneakerList/SneakerList'
+import SneakerList from './components/SneakerList/SneakerList';
 import SneakerDetails from './components/SneakerDetails/SneakerDetails';
 import SneakerForm from './components/SneakerForm/SneakerForm';
 
-export const AuthedUserContext = createContext(null)
 
+export const AuthedUserContext = createContext(null);
 
 const App = () => {
-  const [user, setUser] = useState(authService.getUser())
-  const [sneakers, setSneakers] = useState([])
+  const [user, setUser] = useState(authService.getUser());
+  const [sneakers, setSneakers] = useState([]);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
 
   useEffect(() => {
     const fetchAllSneakers = async () => {
-      const sneakersData = await sneakerService.index()
-      setSneakers(sneakersData)
-    }
-    if(user) fetchAllSneakers()
-  }, [user])
+      const sneakersData = await sneakerService.index();
+      setSneakers(sneakersData);
+    };
+    if (user) fetchAllSneakers();
+  }, [user]);
 
 
   const handleSignout = () => {
-    authService.signout()
-    setUser(null)
-  }
+    authService.signout();
+    setUser(null);
+  };
 
   const handleAddSneaker = async (sneakerFormData) => {
-    const newSneaker = await sneakerService.create(sneakerFormData)
-    setSneakers([newSneaker, ...sneakers])
-    navigate('/sneakers')
-  }
+    const newSneaker = await sneakerService.create(sneakerFormData);
+    setSneakers([newSneaker, ...sneakers]);
+    navigate('/sneakers');
+  };
 
-  const handleDeleteSneaker = async (sneakerId) => { 
-    const deletedSneaker = await sneakerService.deleteSneaker(sneakerId); 
-    setSneakers(sneakers.filter((sneaker) => sneaker._id !== deletedSneaker._id))
+  const handleDeleteSneaker = async (sneakerId) => {
+    const deletedSneaker = await sneakerService.deleteSneaker(sneakerId);
+    setSneakers(sneakers.filter((sneaker) => sneaker._id !== deletedSneaker._id));
     navigate('/sneakers');
   };
 
@@ -54,6 +53,7 @@ const handleUpdateSneaker = async (sneakerId, sneakerFormData) => { // waiting f
   setSneakers(sneakers.map((sneaker) => (sneakerId === sneaker._id ? updatedSneaker : sneaker))); // iterates over sneakers array and checks if Id is currently matching 
   navigate(`/sneakers/${sneakerId}`);
 };
+
 
   return (
     <>
@@ -76,7 +76,7 @@ const handleUpdateSneaker = async (sneakerId, sneakerFormData) => { // waiting f
       </Routes>
     </AuthedUserContext.Provider>
   </>
-)
+  )
 }
 
 export default App

@@ -5,8 +5,6 @@ import CommentForm from "../CommentForm/CommentForm";
 import { AuthedUserContext } from "../../App";
 
 
-
-
 const SneakerDetails = (props) => { // sneakerdetails component will be used to show details about specific SNKRS
   const { sneakerId } = useParams(); // hook used to extract sneakerId from the URL and used to fetch SNKR from back end
    const [sneaker, setSneaker] = useState(null) // this will store the fetched data
@@ -29,23 +27,22 @@ const SneakerDetails = (props) => { // sneakerdetails component will be used to 
     if (!sneaker) return <main>Loading...</main>; // checks if sneaker os falsy, if it is then condition is true
     
     return (
-        <main>
+      <main>
           <header>
-            <p>{sneaker.brand.toUpperCase()}</p> 
-            <h1>{sneaker.name}</h1> 
-            <p>
-              {sneaker.author.username} posted on
-              {new Date(sneaker.createdAt).toLocaleDateString()}
-            </p>
-              {sneaker._id === user._id && ( // checks if the user's ID matches the SNKR author's ID
-                <>
-                 <Link to={`/sneakers/${sneakerId}/edit`}>Edit</Link>
-                  <button onClick={() => {props.handleDeleteSneaker(sneakerId)}}>Delete</button>
-                </>
-
+              <p>{sneaker.brand.toUpperCase()}</p>
+              <h1>{sneaker.name}</h1>
+              <p>
+                  {sneaker.author.username} posted on
+                  {new Date(sneaker.createdAt).toLocaleDateString()}
+              </p>
+              {sneaker.author._id === user._id && (
+                  <>
+                      <Link to={`/sneakers/${sneakerId}/edit`}>Edit</Link>
+                      <button onClick={() => {props.handleDeleteSneaker(sneakerId)}}>Delete</button>
+                  </>
               )}
-        </header>
-
+          </header>
+          
           <p>{sneaker.description}</p>
           <section>
             <h2>Comments</h2>
@@ -57,7 +54,7 @@ const SneakerDetails = (props) => { // sneakerdetails component will be used to 
                    <article key={comment._id}>
                    <header>
                      <p>
-                     {comment.author.username} posted on
+                        {comment.author.username} posted on
                      {new Date(comment.createdAt).toLocaleDateString()}
                      </p>
                     </header>
@@ -71,4 +68,5 @@ const SneakerDetails = (props) => { // sneakerdetails component will be used to 
   };
     
   export default SneakerDetails;
+
 
