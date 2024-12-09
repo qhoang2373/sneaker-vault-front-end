@@ -18,10 +18,7 @@ const SneakerForm = (props) => {
       }
       if (sneakerId) fetchSneaker();
     }, [sneakerId]);
-  
-    const handleChange = (event) => { 
-      setFormData({ ...formData, [event.target.name]: event.target.value }); // uses spread operator to create new object based on formData
-    };
+
   
     const handleSubmit = (event) => {
       event.preventDefault(); // prevents the page to reload
@@ -30,6 +27,10 @@ const SneakerForm = (props) => {
       } else {
         props.handleAddSneaker(formData); // if no sneakerId exists then handleAddSneaker will be called 
       }
+    };
+
+    const handleChange = (event) => { 
+      setFormData({ ...formData, [event.target.name]: event.target.value }); // uses spread operator to create new object based on formData
     };
     
     return (

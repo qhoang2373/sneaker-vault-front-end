@@ -1,16 +1,14 @@
 import { useState, useEffect } from 'react';
 
-import * as sneakerService from '../../services/sneakerService';
-
 const CommentForm = (props) => {
     const [formData, setFormData] = useState({ text: '' });
 
-const handleChange = (evt) => {
-        setFormData({ ...formData, [evt.target.name]: evt.target.value });
+const handleChange = (event) => {
+        setFormData({ ...formData, [event.target.name]: event.target.value });
       };
 
-      const handleSubmit = (evt) => {
-        evt.preventDefault();
+      const handleSubmit = (event) => {
+        event.preventDefault();
         props.handleAddComment(formData);
         setFormData({ text: '' });
       };
@@ -26,11 +24,11 @@ const handleChange = (evt) => {
             value={formData.comment}
             onChange={handleChange}
           />
-          <button type="submit">SUBMIT COMMENT</button>
+          <button type="submit">Submit Comment</button>
         </form>
       );
     };
 
-    export default CommentForm;
+  export default CommentForm;
 
 

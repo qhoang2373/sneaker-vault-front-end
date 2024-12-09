@@ -1,15 +1,5 @@
 const BASE_URL = `${import.meta.env.VITE_EXPRESS_BACKEND_URL}/sneakers`;
 
-const index = async () => {
-    try {
-        const res = await fetch (BASE_URL, {
-            headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
-        });
-        return res.json();
-    } catch (error) {
-      console.log(error)
-    }
-  };
 
   const show = async (sneakerId) => {
     try {
@@ -21,6 +11,18 @@ const index = async () => {
         console.log(error)
       }
     };
+
+    const index = async () => {
+      try {
+          const res = await fetch (BASE_URL, {
+              headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+          });
+          return res.json();
+      } catch (error) {
+        console.log(error)
+      }
+    };
+
 
     const create = async (sneakerFormData) => {
       try {

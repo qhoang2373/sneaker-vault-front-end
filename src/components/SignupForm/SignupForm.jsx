@@ -16,10 +16,6 @@ const SignupForm = (props) => {
   };
 
 
-  const handleChange = (event) => {
-    setFormData({ ...formData, [event.target.name]: event.target.value });
-  };
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -29,6 +25,10 @@ const SignupForm = (props) => {
     }catch(error){
         updateMessage(error.message)
     }
+  };
+
+  const handleChange = (event) => {
+    setFormData({ ...formData, [event.target.name]: event.target.value });
   };
 
   const { username, password, passwordConf } = formData;
