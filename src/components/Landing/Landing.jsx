@@ -3,9 +3,9 @@ import styles from './Landing.module.css';
 const Landing = () => {
     return (
       <main className={styles.container}>
-        <img src="https://i.postimg.cc/fLPWRcVd/logo-1.png" alt="logo"/>
+        <img src="https://i.postimg.cc/Xqd5XMP9/logo-2.webp" alt="logo"/>
         <h3>
-            This is the Sneaker Vault, an app where you can view and manage your entire sneaker collection.
+            {/* Organize, Track, and View Your Sneaker Collection. The Ultimate Sneakerhead's Toolbox. */}
         </h3>
       </main>
     );
