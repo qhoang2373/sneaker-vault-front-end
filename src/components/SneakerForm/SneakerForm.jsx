@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import * as sneakerService from '../../services/sneakerService';
 import { useParams } from 'react-router-dom'
+import styles from './SneakerForm.module.css'
+
 
 const SneakerForm = (props) => {
     const [formData, setFormData] = useState({ // creates a form to input sneakre details like name, desc, brand, etc. 
@@ -34,7 +36,7 @@ const SneakerForm = (props) => {
     };
     
     return (
-      <main>
+<main className={styles.container}>
         <form onSubmit={handleSubmit}> 
         <h1>{sneakerId ? 'Edit Sneaker' : 'New Sneaker'}</h1> 
           <label htmlFor="name-input">Name</label> 

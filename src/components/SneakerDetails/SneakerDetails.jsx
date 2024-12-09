@@ -3,6 +3,8 @@ import { useParams, Link } from "react-router-dom";
 import * as sneakerService from '../../services/sneakerService'
 import CommentForm from "../CommentForm/CommentForm";
 import { AuthedUserContext } from "../../App";
+import styles from './SneakerDetails.module.css';
+
 
 
 const SneakerDetails = (props) => { // sneakerdetails component will be used to show details about specific SNKRS
@@ -24,13 +26,16 @@ const SneakerDetails = (props) => { // sneakerdetails component will be used to 
         setSneaker({ ...sneaker, comments: [...sneaker.comments, newComment] });
     };
 
-    if (!sneaker) return <main>Loading...</main>; // checks if sneaker os falsy, if it is then condition is true
+    if (!sneaker) return <main>Loading...</main>; 
     
     return (
-      <main>
+      <main className={styles.container}>
+        <section>
           <header>
               <p>{sneaker.brand.toUpperCase()}</p>
               <h1>{sneaker.name}</h1>
+
+            <div>
               <p>
                   {sneaker.author.username} posted on
                   {new Date(sneaker.createdAt).toLocaleDateString()}
@@ -38,12 +43,17 @@ const SneakerDetails = (props) => { // sneakerdetails component will be used to 
               {sneaker.author._id === user._id && (
                   <>
                       <Link to={`/sneakers/${sneakerId}/edit`}>Edit</Link>
-                      <button onClick={() => {props.handleDeleteSneaker(sneakerId)}}>Delete</button>
+                      <button onClick={() => {props.handleDeleteSneaker(sneakerId)}}>
+                        Delete
+                        </button>
                   </>
               )}
+            </div>
+
           </header>
-          
           <p>{sneaker.description}</p>
+          </section>
+
           <section>
             <h2>Comments</h2>
             <CommentForm handleAddComment={handleAddComment} /> 
@@ -53,10 +63,14 @@ const SneakerDetails = (props) => { // sneakerdetails component will be used to 
                  return (
                    <article key={comment._id}>
                    <header>
+                   <div>
+
                      <p>
                         {comment.author.username} posted on
                      {new Date(comment.createdAt).toLocaleDateString()}
                      </p>
+                     </div>
+
                     </header>
                     <p>{comment.comment}</p>
                   </article>
