@@ -7,15 +7,15 @@ import styles from './SneakerDetails.module.css';
 
 
 
-const SneakerDetails = (props) => { // sneakerdetails component will be used to show details about specific SNKRS
-  const { sneakerId } = useParams(); // hook used to extract sneakerId from the URL and used to fetch SNKR from back end
-   const [sneaker, setSneaker] = useState(null) // this will store the fetched data
-   const user = useContext(AuthedUserContext); // access user data from line 5
+const SneakerDetails = (props) => { 
+  const { sneakerId } = useParams(); 
+   const [sneaker, setSneaker] = useState(null) 
+   const user = useContext(AuthedUserContext); 
 
     useEffect(() => { 
         const fetchSneaker = async () => { 
-          const sneakerData = await sneakerService.show(sneakerId); // fetches details of a SNKR's sneakerId
-          setSneaker(sneakerData); // setSneaker updates the value of the 
+          const sneakerData = await sneakerService.show(sneakerId); 
+          setSneaker(sneakerData); 
         };
         fetchSneaker();
       }, [sneakerId]);

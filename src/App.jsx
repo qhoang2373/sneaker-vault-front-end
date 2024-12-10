@@ -48,9 +48,9 @@ const App = () => {
     navigate('/sneakers');
   };
 
-const handleUpdateSneaker = async (sneakerId, sneakerFormData) => { // waiting for other operations to complete 
-  const updatedSneaker = await sneakerService.update(sneakerId, sneakerFormData); // sneakerId, this is the SNKR being updated 
-  setSneakers(sneakers.map((sneaker) => (sneakerId === sneaker._id ? updatedSneaker : sneaker))); // iterates over sneakers array and checks if Id is currently matching 
+const handleUpdateSneaker = async (sneakerId, sneakerFormData) => { 
+  const updatedSneaker = await sneakerService.update(sneakerId, sneakerFormData); 
+  setSneakers(sneakers.map((sneaker) => (sneakerId === sneaker._id ? updatedSneaker : sneaker))); 
   navigate(`/sneakers/${sneakerId}`);
 };
 
