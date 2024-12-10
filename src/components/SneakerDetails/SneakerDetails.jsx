@@ -64,13 +64,11 @@ const SneakerDetails = (props) => { // sneakerdetails component will be used to 
                    <article key={comment._id}>
                    <header>
                    <div>
-
                      <p>
                         {comment.author.username} posted on
                      {new Date(comment.createdAt).toLocaleDateString()}
                      </p>
                      </div>
-
                     </header>
                     <p>{comment.comment}</p>
                   </article>

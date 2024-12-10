@@ -4,7 +4,6 @@ import * as authService from '../../services/authService'
 import styles from './SignupForm.module.css';
 
 
-
 const SignupForm = (props) => {
   const navigate = useNavigate();
   const [message, setMessage] = useState(['']);
@@ -41,7 +40,7 @@ const SignupForm = (props) => {
   };
 
   return (
-    <main className={styles.container}>
+<main className={styles.container}>
       <section>
       <form onSubmit={handleSubmit}>
       <h1>Sign Up</h1>

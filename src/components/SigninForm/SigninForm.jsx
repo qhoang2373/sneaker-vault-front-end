@@ -3,7 +3,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import * as authService from '../../services/authService'; 
 import styles from './SigninForm.module.css';
 
-
 const SigninForm = (props) => {
   const navigate = useNavigate(); 
   const [message, setMessage] = useState(['']);
@@ -35,10 +34,10 @@ const SigninForm = (props) => {
 
   return (
     <main className={styles.container}>
-      <section>
-      <form autoComplete="off" onSubmit={handleSubmit}>
-      <h1>Log In</h1>
-      <p>{message}</p>
+       <section>
+          <form autoComplete="off" onSubmit={handleSubmit}>
+            <h1>Sign In</h1>
+            <p>{message}</p>
         <div>
           <label htmlFor="email">Username:</label>
           <input
@@ -62,7 +61,7 @@ const SigninForm = (props) => {
           />
         </div>
         <div>
-          <button>Log In</button>
+          <button>Sign In</button>
           <Link to="/">
             <button>Cancel</button>
           </Link>

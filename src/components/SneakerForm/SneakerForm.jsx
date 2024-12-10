@@ -5,7 +5,7 @@ import styles from './SneakerForm.module.css'
 
 
 const SneakerForm = (props) => {
-    const [formData, setFormData] = useState({ // creates a form to input sneakre details like name, desc, brand, etc. 
+    const [formData, setFormData] = useState({ 
       name: '',
       description: '',
       brand: 'Nike',
@@ -15,35 +15,35 @@ const SneakerForm = (props) => {
 
     useEffect(()=> {
       const fetchSneaker = async () => {
-        const sneakerData = await sneakerService.show(sneakerId); // calling a function named show from sneakerService, fetches SNkR data based on sneakeriD
-        setFormData(sneakerData); // updtaes the formdata with the acquired sneakerData
+        const sneakerData = await sneakerService.show(sneakerId); 
+        setFormData(sneakerData); 
       }
       if (sneakerId) fetchSneaker();
     }, [sneakerId]);
 
   
     const handleSubmit = (event) => {
-      event.preventDefault(); // prevents the page to reload
+      event.preventDefault(); 
       if (sneakerId) {
-        props.handleUpdateSneaker(sneakerId, formData); // used to update existing SNKR is sneakerId exists
+        props.handleUpdateSneaker(sneakerId, formData); 
       } else {
-        props.handleAddSneaker(formData); // if no sneakerId exists then handleAddSneaker will be called 
+        props.handleAddSneaker(formData); 
       }
     };
 
     const handleChange = (event) => { 
-      setFormData({ ...formData, [event.target.name]: event.target.value }); // uses spread operator to create new object based on formData
+      setFormData({ ...formData, [event.target.name]: event.target.value }); 
     };
     
     return (
-<main className={styles.container}>
+        <main className={styles.container}>
         <form onSubmit={handleSubmit}> 
         <h1>{sneakerId ? 'Edit Sneaker' : 'New Sneaker'}</h1> 
           <label htmlFor="name-input">Name</label> 
           <input
             required 
-            type="text" // the type of inup will be plain text
-            name="name" // assigns a name 
+            type="text" 
+            name="name" 
             id="name-input" 
             value={formData.name} 
             onChange={handleChange}

@@ -6,7 +6,7 @@ const NavBar = ({ user, handleSignout }) => {
     <>
       { user ? (
         <nav className={styles.container}>
-        {/* <Link to='/'><img src={Logo} alt="A cute owl" /></Link> */} 
+  
         <ul>
             <li><Link to="/">Home</Link></li>
             <li><Link to='/sneakers'>Sneakers</Link></li>
@@ -16,7 +16,7 @@ const NavBar = ({ user, handleSignout }) => {
         </nav>
       ) : (
         <nav className={styles.container}>
-        {/* <Link to='/'><img src={Logo} alt="A cute owl" /></Link> */}
+      
           <ul>
             <li><Link to="/signin">Sign In</Link></li>
             <li><Link to="/signup">Sign Up</Link></li>
