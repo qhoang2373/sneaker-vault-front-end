@@ -16,7 +16,6 @@ const handleChange = (event) => {
       };
 
 
-
       return (
         <form onSubmit={handleSubmit}>
           <label htmlFor="comment-input">Your comment:</label>
