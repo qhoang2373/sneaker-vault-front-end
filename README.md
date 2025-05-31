@@ -33,7 +33,7 @@ Key Features will allow users to view and manage their Sneaker collection by nam
 * AAU, I want to create, edit, and delete my posting
 * AAU, I want to be able to edit, delete, and create my comments
 * AAU, I want to see my collection as well as all other collections 
-* AAU, I would like to see the details of my currently selected Sneaker and any comments other users have left.
+* AAU, I would like to see the details of my currently selected Sneaker and  any comments other users have left.
 * As an Author, I want to be able to edit and delete my collection of sneakers.
 
 ## Image Links

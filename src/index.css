@@ -5,7 +5,8 @@
 html, body {
   margin: 0;
   height: 100%;
-  overflow: hidden;
+  /* It's good to have `overflow: auto;` on the body if content might exceed viewport height.
+     Removed `overflow: hidden;` from here as it conflicted with `body { overflow: auto; }` below. */
   background-color: #f2f4f8;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -23,8 +24,8 @@ html, body {
 }
 
 body {
-  overflow: auto;
-  padding-top: 80px;
+  overflow: auto; /* This allows scrolling if content overflows the viewport */
+  padding-top: 80px; /* This padding is likely to prevent content from going under your fixed NavBar */
 }
 
 article img {

@@ -57,3 +57,47 @@ body {
   color: black;
   line-height: 1.4;
 }
+
+/* MEDIA QUERIES */
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* This is the key change */
+        padding: 15px;
+        gap: 15px;
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .container a { /* Card width */
+        width: 90%;
+        max-width: 400px;
+    }
+
+    .container article header h2 {
+        font-size: 1.2rem;
+    }
+
+    .container article header p,
+    .container article p {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .container a {
+        width: 95%; 
+    }
+
+    /* You might want to adjust font sizes more here, 
+       but you also have global h1/h3/p rules. 
+       If this h2 should be smaller than the global h1, keep it here. */
+    .container article header h2 {
+        font-size: 1rem; /* Example: even smaller for mobile */
+    }
+}
